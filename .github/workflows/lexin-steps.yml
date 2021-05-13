@@ -27,3 +27,5 @@ jobs:
         run: python lexin.py
         env:
           STEPS: ${{ github.event.inputs.steps }}
+          USERNAME: ${{ secrets.LEXIN_USERNAME }}
+          PASSWORD: ${{ secrets.LEXIN_PASSWORD }}
