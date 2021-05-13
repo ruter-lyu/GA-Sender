@@ -1,0 +1,26 @@
+name: Lexin Steps Change
+
+on:
+  # Run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      steps:
+        description: 'The steps you want to change to'
+        required: true
+
+jobs:
+  runScripts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      
+      - name: Setup Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Run lexin.py
+        run: python lexin.py
+        env:
+          STEPS: ${{ github.event.inputs.steps }}
