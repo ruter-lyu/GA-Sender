@@ -68,18 +68,18 @@ if __name__ == "__main__":
     passowrd = os.getenv('PASSWORD', '')
     if not (steps and username and password):
         print('缺少运行参数')
-        return
-    steps = int(steps)
-    # 最大运行出错次数
-    fail_num = 3
-    while fail_num > 0:
-        try:
-            # 修改步数结果
-            result = LexinSport(username, password, steps).change_step()
-            print(result)
-            break
-        except Exception as e:
-            print('运行出错，原因：%s' % e)
-            fail_num -= 1
-            if fail_num == 0:
-                print('修改步数失败')
+    else:
+        steps = int(steps)
+        # 最大运行出错次数
+        fail_num = 3
+        while fail_num > 0:
+            try:
+                # 修改步数结果
+                result = LexinSport(username, password, steps).change_step()
+                print(result)
+                break
+            except Exception as e:
+                print('运行出错，原因：%s' % e)
+                fail_num -= 1
+                if fail_num == 0:
+                    print('修改步数失败')
