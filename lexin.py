@@ -65,7 +65,7 @@ class LexinSport:
 if __name__ == "__main__":
     steps = os.getenv('STEPS', '')
     username = os.getenv('USERNAME', '')
-    passowrd = os.getenv('PASSWORD', '')
+    password = os.getenv('PASSWORD', '')
     if not (steps and username and password):
         print('缺少运行参数')
     else:
