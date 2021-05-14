@@ -66,6 +66,7 @@ if __name__ == "__main__":
     steps = os.getenv('STEPS', '')
     username = os.getenv('USERNAME', '')
     password = os.getenv('PASSWORD', '')
+    sender_sk = os.getenv('SENDER_SK', '')
     if not (steps and username and password):
         print('缺少运行参数')
     else:
@@ -76,6 +77,8 @@ if __name__ == "__main__":
             try:
                 # 修改步数结果
                 result = LexinSport(username, password, steps).change_step()
+                if sender_sk:
+                    requests.get(f'https://sender.xzhsh.ch/api/v1/notification?secretkey={sender_sk}&title={result}&desc={result}')
                 print(result)
                 break
             except Exception as e:
