@@ -29,3 +29,4 @@ jobs:
           STEPS: ${{ github.event.inputs.steps }}
           USERNAME: ${{ secrets.LEXIN_USERNAME }}
           PASSWORD: ${{ secrets.LEXIN_PASSWORD }}
+          SENDER_SK: ${{ secrets.SENDER_SK }}
